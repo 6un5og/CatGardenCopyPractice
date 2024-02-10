@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
-using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class GameSlotUI : MonoBehaviour, IPointerEnterHandler, IDropHandler, IPointerExitHandler
+public class GameSlotUI : MonoBehaviour, IDropHandler
 {
     Image image;
     RectTransform rect;
@@ -22,15 +22,5 @@ public class GameSlotUI : MonoBehaviour, IPointerEnterHandler, IDropHandler, IPo
             eventData.pointerDrag.transform.SetParent(transform);
             eventData.pointerDrag.GetComponent<RectTransform>().position = rect.position;
         }
-    }
-
-    public void OnPointerEnter(PointerEventData eventData)
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        throw new System.NotImplementedException();
     }
 }
