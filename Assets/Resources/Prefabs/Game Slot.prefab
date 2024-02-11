@@ -88,3 +88,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7351cb197d8c445a4a46bc94449ed8e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemIcon:
+  - {fileID: 946060843328845652, guid: 1e9a463744cdb45dbb8d671ac6951de4, type: 3}
+  - {fileID: 97673700808524065, guid: 407b79902467745f6aa2e285b50e7dbd, type: 3}
+  - {fileID: 3589157383310218845, guid: 390dfb0b4b34444598cf9061a4bf99de, type: 3}

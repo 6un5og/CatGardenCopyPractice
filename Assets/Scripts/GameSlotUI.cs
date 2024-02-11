@@ -1,18 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 public class GameSlotUI : MonoBehaviour, IDropHandler
 {
-    Image image;
     RectTransform rect;
+    public GameObject[] itemIcon;
 
-    private void Awake()
+    void Awake()
     {
-        image = GetComponent<Image>();
         rect = GetComponent<RectTransform>();
+    }
+
+    void Start()
+    {
+        GameObject ranIcon = itemIcon[Random.Range(0, 2)];
+        Instantiate(ranIcon, transform);
     }
 
     public void OnDrop(PointerEventData eventData)
