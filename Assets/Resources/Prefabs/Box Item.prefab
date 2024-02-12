@@ -12,9 +12,8 @@ GameObject:
   - component: {fileID: 3905075285928358281}
   - component: {fileID: 6650865521061082225}
   - component: {fileID: 8269256132555164139}
-  - component: {fileID: 2692080635576167112}
-  - component: {fileID: 2178101496654240463}
-  - component: {fileID: -2275128451820881664}
+  - component: {fileID: -4254038951740315143}
+  - component: {fileID: -4247780161862014795}
   m_Layer: 5
   m_Name: Box Item
   m_TagString: Box
@@ -100,7 +99,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!225 &2692080635576167112
+--- !u!225 &-4254038951740315143
 CanvasGroup:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -112,7 +111,7 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &2178101496654240463
+--- !u!114 &-4247780161862014795
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -124,15 +123,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21e4370e94dd94ee5aee60acfe0b2eaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-2275128451820881664
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1329148992670609670}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d22c1a4eed6e442487cad48dfc1956f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  item: {fileID: 0}
+  image: {fileID: 0}
