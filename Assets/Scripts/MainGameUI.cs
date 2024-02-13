@@ -5,11 +5,19 @@ using UnityEngine.EventSystems;
 
 public class MainGameUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler
 {
+    public enum ItemType
+    {
+        Box, Coin, Potion, Sword
+    }
+
     Transform canvas;
-    public Transform prevParent;
+    Transform prevParent;
     RectTransform rect;
     Animator anim;
     CanvasGroup canvasGroup;
+
+    public int itemLevel;
+    public bool isMerge;
 
     void Awake()
     {
@@ -22,6 +30,38 @@ public class MainGameUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
     void OnEnable()
     {
         anim.SetInteger("BoxLevel", 1);
+    }
+
+    void OnDisable()
+    {
+        itemLevel = 0;
+        anim.SetInteger("BoxLevel", 0);
+        anim.SetInteger("ItemLevel", 0);
+        anim.SetBool("isCoin", false);
+        anim.SetBool("isPotion", false);
+        anim.SetBool("isSword", false);
+    }
+
+    public void LevelUp()
+    {
+        if (isMerge)
+        {
+            itemLevel += 1;
+            anim.SetInteger("ItemLevel", itemLevel);
+
+        }
+        // switch (switch_on)
+        // {
+        //     case ItemType.Coin:
+        //         anim.SetBool("isCoin", true);
+        //         break;
+        //     case ItemType.Potion:
+        //         anim.SetBool("isPotion", true);
+        //         break;
+        //     case ItemType.Sword:
+        //         anim.SetBool("isSword", true);
+        //         break;
+        // }
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -71,6 +111,7 @@ public class MainGameUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
             transform.SetParent(eventData.pointerDrag.GetComponent<MainGameUI>().prevParent);
             rect.position = eventData.pointerDrag.GetComponent<MainGameUI>().prevParent.GetComponent<RectTransform>().position;
             transform.gameObject.SetActive(false);
+            transform.localScale = Vector3.zero;
         }
     }
 }
