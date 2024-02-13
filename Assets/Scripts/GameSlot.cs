@@ -23,7 +23,12 @@ public class GameSlot : MonoBehaviour, IDropHandler
             }
             else
             {
-                Debug.Log("비어있지 않습니다.");
+                //eventData.pointerDrag.transform.SetParent(transform);
+                //eventData.pointerDrag.GetComponent<RectTransform>().position = rect.position;
+                //transform.SetParent(eventData.pointerDrag.GetComponent<MainGameUI>().prevParent.transform);
+                //rect.position = eventData.pointerDrag.GetComponent<MainGameUI>().prevParent.transform.GetComponent<RectTransform>().position;
+                Debug.Log("비어있지 않습니다");
+
             }
 
         }

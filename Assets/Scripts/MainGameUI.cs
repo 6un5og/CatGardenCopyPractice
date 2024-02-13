@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class MainGameUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class MainGameUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler
 {
     Transform canvas;
-    Transform prevParent;
+    public Transform prevParent;
     RectTransform rect;
     Animator anim;
     CanvasGroup canvasGroup;
@@ -58,6 +58,19 @@ public class MainGameUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
 
             canvasGroup.alpha = 1.0f;
             canvasGroup.blocksRaycasts = true;
+        }
+    }
+
+    public void OnDrop(PointerEventData eventData)
+    {
+        if (eventData.pointerDrag.tag == transform.tag)
+        {
+            eventData.pointerDrag.transform.SetParent(transform.parent);
+            eventData.pointerDrag.GetComponent<RectTransform>().position = rect.position;
+
+            transform.SetParent(eventData.pointerDrag.GetComponent<MainGameUI>().prevParent);
+            rect.position = eventData.pointerDrag.GetComponent<MainGameUI>().prevParent.GetComponent<RectTransform>().position;
+            transform.gameObject.SetActive(false);
         }
     }
 }
