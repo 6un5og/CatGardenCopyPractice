@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -30,27 +31,6 @@ public class GameManager : MonoBehaviour
                 Instantiate(item, gameSlot.transform);
             }
         }
-    }
-
-    public GameObject Get(int i, int j)
-    {
-        GameObject select = null;
-        foreach (GameObject item in slots[i, j])
-        {
-            select = item;
-            select.SetActive(true);
-            break;
-        }
-        if (!select)
-        {
-            Debug.Log("공간이 없습니다.");
-        }
-        return select;
-    }
-
-    void NewItem()
-    {
-
     }
 }
 
