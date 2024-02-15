@@ -28,21 +28,15 @@ public class MainGameUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
         canvasGroup = GetComponent<CanvasGroup>();
     }
 
-    public void CreateItem()
-    {
-        anim.SetTrigger("click");
-    }
-
     void OnEnable()
     {
-
         anim.SetInteger("Level", 0);
     }
 
     void OnDisable()
     {
         itemLevel = 0;
-        anim.SetInteger("ItemLevel", 0);
+        anim.SetInteger("Level", 0);
         anim.SetBool("isCoin", false);
         anim.SetBool("isPotion", false);
         anim.SetBool("isSword", false);

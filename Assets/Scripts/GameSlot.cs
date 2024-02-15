@@ -16,11 +16,8 @@ public class GameSlot : MonoBehaviour, IDropHandler
     {
         if (eventData.pointerDrag.CompareTag("Box"))
         {
-            if (transform.childCount == 0)
-            {
-                eventData.pointerDrag.transform.SetParent(transform);
-                eventData.pointerDrag.GetComponent<RectTransform>().position = rect.position;
-            }
+            eventData.pointerDrag.transform.SetParent(transform);
+            eventData.pointerDrag.GetComponent<RectTransform>().position = rect.position;
         }
     }
 }
