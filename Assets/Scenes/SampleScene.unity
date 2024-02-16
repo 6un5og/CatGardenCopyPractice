@@ -705,7 +705,8 @@ MonoBehaviour:
   slotParent: {fileID: 280663640}
   slot: {fileID: 607165696649327323, guid: cd0096e96379e4a818b1f7d02f792554, type: 3}
   item: {fileID: 1329148992670609670, guid: 8dd2f125ead8d44c39ffe43085089428, type: 3}
-  isActive: 0
+  poolCursor: 0
+  gameSlotCount: 0
 --- !u!4 &1174492298
 Transform:
   m_ObjectHideFlags: 0

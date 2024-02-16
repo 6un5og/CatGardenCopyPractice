@@ -13,13 +13,15 @@ public class GameManager : MonoBehaviour
     public GameObject item;
 
     public int poolCursor;
-
+    public int gameSlotCount;
     List<GameObject>[,] slots = new List<GameObject>[8, 7];
     List<MainGameUI> items = new List<MainGameUI>();
 
     void Awake()
     {
+        instance = this;
         StartGame();
+        gameSlotCount = slots.Length;
     }
 
     void StartGame()
