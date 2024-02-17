@@ -15,7 +15,6 @@ public class GameManager : MonoBehaviour
     public int poolCursor;
     public int gameSlotCount;
     List<GameObject>[,] slots = new List<GameObject>[8, 7];
-    List<MainGameUI> items = new List<MainGameUI>();
 
     void Awake()
     {
@@ -37,39 +36,6 @@ public class GameManager : MonoBehaviour
                 Instantiate(item, gameSlot.transform);
             }
         }
-    }
-
-    MainGameUI MakeItem(GameSlot gameSlot)
-    {
-        GameObject instantItemObj = Instantiate(item, gameSlot.transform);
-        MainGameUI instantItem = instantItemObj.GetComponent<MainGameUI>();
-        items.Add(instantItem);
-        return instantItem;
-    }
-
-    public MainGameUI CreateNewSlot()
-    {
-        for (int index = 0; index < slotParent.transform.childCount; index++)
-        {
-            if (slotParent.transform.GetChild(index).childCount == 0)
-            {
-                return slotParent.transform.GetChild(index).transform.GetComponent<MainGameUI>();
-            }
-            else
-            {
-                for (int i = 0; i < slotParent.transform.GetChild(index).childCount; i++)
-                {
-                    if (!slotParent.transform.GetChild(index).GetChild(i).gameObject.activeSelf)
-                    {
-                        return slotParent.transform.GetChild(index).GetChild(i).GetComponent<MainGameUI>();
-                    }
-                    else
-                        break;
-                }
-
-            }
-        }
-        return MakeItem(slot.GetComponent<GameSlot>());
     }
 }
 

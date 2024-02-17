@@ -31,6 +31,7 @@ public class MainGameUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
     void OnEnable()
     {
         anim.SetInteger("Level", 0);
+        // 여기서 미리 bool 정해주기 
     }
 
     void OnDisable()
@@ -47,21 +48,8 @@ public class MainGameUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
         if (isMerge)
         {
             itemLevel++;
-            anim.SetInteger("ItemLevel", itemLevel);
-
+            anim.SetInteger("Level", itemLevel);
         }
-        // switch (switch_on)
-        // {
-        //     case ItemType.Coin:
-        //         anim.SetBool("isCoin", true);
-        //         break;
-        //     case ItemType.Potion:
-        //         anim.SetBool("isPotion", true);
-        //         break;
-        //     case ItemType.Sword:
-        //         anim.SetBool("isSword", true);
-        //         break;
-        // }
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -107,6 +95,7 @@ public class MainGameUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
         {
             eventData.pointerDrag.transform.SetParent(transform.parent);
             eventData.pointerDrag.GetComponent<RectTransform>().position = rect.position;
+            eventData.pointerDrag.transform.GetComponent<MainGameUI>().LevelUp();
 
             transform.gameObject.SetActive(false);
             transform.localScale = Vector3.zero;

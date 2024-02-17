@@ -6,7 +6,6 @@ public class CreateItem : MonoBehaviour
 {
     Animator anim;
     GameObject slotParent => GameManager.instance.slotParent;
-    GameObject slot => GameManager.instance.slot;
     GameObject item => GameManager.instance.item;
 
     void Awake()
