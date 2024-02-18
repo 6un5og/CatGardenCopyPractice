@@ -28,10 +28,28 @@ public class MainGameUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
         canvasGroup = GetComponent<CanvasGroup>();
     }
 
+    public ItemType GetRandomEnumValue()
+    {
+        var enumValue = System.Enum.GetValues(enumType: typeof(ItemType));
+        return (ItemType)enumValue.GetValue(Random.Range(1, enumValue.Length));
+    }
+
     void OnEnable()
     {
         anim.SetInteger("Level", 0);
-        // 여기서 미리 bool 정해주기 
+        GetRandomEnumValue();
+        switch (GetRandomEnumValue())
+        {
+            case ItemType.Coin:
+                anim.SetBool("isCoin", true);
+                break;
+            case ItemType.Potion:
+                anim.SetBool("isPotion", true);
+                break;
+            case ItemType.Sword:
+                anim.SetBool("isSword", true);
+                break;
+        }
     }
 
     void OnDisable()
