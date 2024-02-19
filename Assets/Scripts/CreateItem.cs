@@ -29,17 +29,12 @@ public class CreateItem : MonoBehaviour
         GameObject select = null;
         for (int index = 0; index < GameManager.instance.gameSlotCount; index++)
         {
-            Debug.Log("슬롯 도는중");
-            if (slotParent.transform.GetChild(index).childCount != 0)
+            if (slotParent.transform.GetChild(index).childCount != 0 && slotParent.transform.GetChild(index).Find("Box Item").gameObject.activeSelf == false)
             {
                 for (int i = 0; i < slotParent.transform.GetChild(index).childCount; i++)
                 {
-                    if (!slotParent.transform.GetChild(index).GetChild(i).gameObject.activeSelf)
-                    {
-                        slotParent.transform.GetChild(index).GetChild(i).gameObject.SetActive(true);
-                    }
-                    else
-                        break;
+                    slotParent.transform.GetChild(index).GetChild(i).gameObject.SetActive(true);
+                    break;
                 }
             }
             else

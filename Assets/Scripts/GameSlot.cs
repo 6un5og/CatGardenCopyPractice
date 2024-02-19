@@ -14,10 +14,11 @@ public class GameSlot : MonoBehaviour, IDropHandler
 
     public void OnDrop(PointerEventData eventData)
     {
-        if (eventData.pointerDrag.CompareTag("Box"))
+        GameObject dragItem = eventData.pointerDrag;
+        if (dragItem.CompareTag("Box") || transform.Find("Box Item") == null)
         {
-            eventData.pointerDrag.transform.SetParent(transform);
-            eventData.pointerDrag.GetComponent<RectTransform>().position = rect.position;
+            dragItem.transform.SetParent(transform);
+            dragItem.GetComponent<RectTransform>().position = rect.position;
         }
     }
 }

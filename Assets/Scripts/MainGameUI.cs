@@ -16,9 +16,8 @@ public class MainGameUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
     Animator anim;
     CanvasGroup canvasGroup;
 
-    public int itemLevel;
-    public bool isMerge;
-    public bool isChange;
+    public int level;
+    public ItemType ItemTypes { get; set; }
 
     void Awake()
     {
@@ -54,7 +53,7 @@ public class MainGameUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
 
     void OnDisable()
     {
-        itemLevel = 0;
+        level = 0;
         anim.SetInteger("Level", 0);
         anim.SetBool("isCoin", false);
         anim.SetBool("isPotion", false);
@@ -63,11 +62,8 @@ public class MainGameUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
 
     public void LevelUp()
     {
-        if (isMerge)
-        {
-            itemLevel++;
-            anim.SetInteger("Level", itemLevel);
-        }
+        level++;
+        anim.SetInteger("Level", level);
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -109,11 +105,16 @@ public class MainGameUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
 
     public void OnDrop(PointerEventData eventData)
     {
-        if (eventData.pointerDrag.tag == transform.tag)
+        GameObject dragItem = eventData.pointerDrag;
+        MainGameUI dragItemUI = dragItem.transform.GetComponent<MainGameUI>();
+        ItemType dragItemType = dragItemUI.ItemTypes;
+        MainGameUI thisItemUI = transform.GetComponent<MainGameUI>();
+
+        if (dragItemType == thisItemUI.ItemTypes && dragItemUI.level == thisItemUI.level)
         {
-            eventData.pointerDrag.transform.SetParent(transform.parent);
-            eventData.pointerDrag.GetComponent<RectTransform>().position = rect.position;
-            eventData.pointerDrag.transform.GetComponent<MainGameUI>().LevelUp();
+            dragItem.transform.SetParent(transform.parent);
+            dragItem.GetComponent<RectTransform>().position = rect.position;
+            dragItemUI.LevelUp();
 
             transform.gameObject.SetActive(false);
             transform.localScale = Vector3.zero;
