@@ -29,16 +29,12 @@ public class CreateItem : MonoBehaviour
         GameObject select = null;
         for (int index = 0; index < GameManager.instance.gameSlotCount; index++)
         {
-            if (slotParent.transform.GetChild(index).childCount != 0 && slotParent.transform.GetChild(index).Find("Box Item").gameObject.activeSelf == false)
-            {
-                for (int i = 0; i < slotParent.transform.GetChild(index).childCount; i++)
-                {
-                    slotParent.transform.GetChild(index).GetChild(i).gameObject.SetActive(true);
-                    break;
-                }
-            }
-            else
+            if (slotParent.transform.GetChild(index).childCount == 0)
                 return Instantiate(item, slotParent.transform.GetChild(index));
+            else if (slotParent.transform.GetChild(index).childCount != 0 && slotParent.transform.GetChild(index).Find("Box Item").gameObject.activeSelf == false)
+                slotParent.transform.GetChild(index).Find("Box Item").gameObject.SetActive(true);
+            else
+                continue;
         }
         return select;
     }

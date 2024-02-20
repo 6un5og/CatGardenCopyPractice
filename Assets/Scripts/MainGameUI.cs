@@ -78,8 +78,6 @@ public class MainGameUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
             canvasGroup.alpha = 0.6f;
             canvasGroup.blocksRaycasts = false;
         }
-        else
-            Debug.Log("비어있는 슬롯입니다.");
     }
 
     public void OnDrag(PointerEventData eventData)
