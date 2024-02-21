@@ -35,7 +35,8 @@ public class MainGameUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
 
     void OnEnable()
     {
-        anim.SetInteger("Level", 0);
+        level = 1;
+        anim.SetInteger("Level", 1);
         GetRandomEnumValue();
         switch (GetRandomEnumValue())
         {
@@ -62,8 +63,7 @@ public class MainGameUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
 
     public void LevelUp()
     {
-        level++;
-        anim.SetInteger("Level", level);
+        anim.SetInteger("Level", ++level);
     }
 
     public void OnBeginDrag(PointerEventData eventData)

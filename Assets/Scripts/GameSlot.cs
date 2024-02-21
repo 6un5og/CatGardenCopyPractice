@@ -15,7 +15,7 @@ public class GameSlot : MonoBehaviour, IDropHandler
     public void OnDrop(PointerEventData eventData)
     {
         GameObject dragItem = eventData.pointerDrag;
-        if (dragItem.CompareTag("Box") || transform.Find("Box Item") == null)
+        if (dragItem.CompareTag("Box"))
         {
             dragItem.transform.SetParent(transform);
             dragItem.GetComponent<RectTransform>().position = rect.position;
