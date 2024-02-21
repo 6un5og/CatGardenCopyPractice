@@ -31,8 +31,6 @@ public class CreateItem : MonoBehaviour
         {
             if (slotParent.transform.GetChild(index).childCount == 0)
                 return Instantiate(item, slotParent.transform.GetChild(index));
-            else if (slotParent.transform.GetChild(index).childCount != 0 && slotParent.transform.GetChild(index).Find("Box Item").gameObject.activeSelf == false)
-                slotParent.transform.GetChild(index).Find("Box Item").gameObject.SetActive(true);
             else
                 continue;
         }

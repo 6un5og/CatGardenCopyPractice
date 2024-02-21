@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
                 GameObject gameSlot = Instantiate(slot, slotParent.transform);
                 if (i >= 3 && i <= 5 && j >= 2 && j <= 4)
                     continue;
-                Instantiate(item, gameSlot.transform);
+                // Instantiate(item, gameSlot.transform);
             }
         }
     }
