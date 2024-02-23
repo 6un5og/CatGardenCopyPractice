@@ -78,6 +78,7 @@ public class MainGameUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
             canvasGroup.alpha = 0.6f;
             canvasGroup.blocksRaycasts = false;
         }
+        else return;
     }
 
     public void OnDrag(PointerEventData eventData)
