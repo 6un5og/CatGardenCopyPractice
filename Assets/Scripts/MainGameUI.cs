@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class MainGameUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler
+public class MainGameUI : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler
 {
     public enum ItemType
     {
@@ -17,6 +17,7 @@ public class MainGameUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
     CanvasGroup canvasGroup;
 
     public int level;
+
     public ItemType ItemTypes { get; set; }
 
     void Awake()
@@ -37,8 +38,8 @@ public class MainGameUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
     {
         level = 1;
         anim.SetInteger("Level", 1);
-        GetRandomEnumValue();
-        switch (GetRandomEnumValue())
+        ItemTypes = GetRandomEnumValue();
+        switch (ItemTypes)
         {
             case ItemType.Coin:
                 anim.SetBool("isCoin", true);
@@ -66,8 +67,19 @@ public class MainGameUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
         anim.SetInteger("Level", ++level);
     }
 
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        MainGameUI dragInfo = eventData.pointerClick.GetComponent<MainGameUI>();
+        GameManager.instance.itemName.text = dragInfo.ItemTypes.ToString() + "\nLv. " + dragInfo.level.ToString();
+        GameManager.instance.itemInfo.text = dragInfo.level.ToString();
+    }
+
     public void OnBeginDrag(PointerEventData eventData)
     {
+        MainGameUI dragInfo = eventData.pointerClick.GetComponent<MainGameUI>();
+        GameManager.instance.itemName.text = dragInfo.ItemTypes.ToString() + "\nLv. " + dragInfo.level.ToString();
+        GameManager.instance.itemInfo.text = dragInfo.level.ToString();
+
         if (eventData.pointerDrag.CompareTag("Box"))
         {
             prevParent = transform.parent;
