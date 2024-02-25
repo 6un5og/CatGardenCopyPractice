@@ -16,6 +16,7 @@ public class MainGameUI : MonoBehaviour, IPointerClickHandler, IBeginDragHandler
     Animator anim;
     CanvasGroup canvasGroup;
 
+    public ParticleSystem effect;
     public int level;
 
     public ItemType ItemTypes { get; set; }
@@ -126,6 +127,10 @@ public class MainGameUI : MonoBehaviour, IPointerClickHandler, IBeginDragHandler
             dragItem.transform.SetParent(transform.parent);
             dragItem.GetComponent<RectTransform>().position = rect.position;
             dragItemUI.LevelUp();
+
+            effect.transform.position = dragItem.transform.position;
+            effect.transform.localScale = dragItem.transform.localScale;
+            effect.Play();
 
             transform.gameObject.SetActive(false);
             transform.localScale = Vector3.zero;

@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public GameObject slotParent;
     public GameObject slot;
     public GameObject item;
+    public GameObject effectPrefab;
 
     public int poolCursor;
     public int gameSlotCount;
@@ -23,6 +24,7 @@ public class GameManager : MonoBehaviour
         instance = this;
         StartGame();
         gameSlotCount = slots.Length;
+        Instantiate(effectPrefab);
     }
 
     void StartGame()

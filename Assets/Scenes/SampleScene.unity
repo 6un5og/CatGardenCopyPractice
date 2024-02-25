@@ -861,6 +861,7 @@ MonoBehaviour:
   slotParent: {fileID: 280663640}
   slot: {fileID: 607165696649327323, guid: cd0096e96379e4a818b1f7d02f792554, type: 3}
   item: {fileID: 1329148992670609670, guid: 8dd2f125ead8d44c39ffe43085089428, type: 3}
+  effectPrefab: {fileID: 1812141987484366187, guid: cd82b0e7717834e1992dabafde41feb9, type: 3}
   poolCursor: 0
   gameSlotCount: 0
   itemName: {fileID: 1608773437}

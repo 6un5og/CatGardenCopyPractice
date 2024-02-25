@@ -123,5 +123,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21e4370e94dd94ee5aee60acfe0b2eaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 0}
-  image: {fileID: 0}
+  prevParent: {fileID: 0}
+  effect: {fileID: 2817675891464692974, guid: cd82b0e7717834e1992dabafde41feb9, type: 3}
+  level: 0
