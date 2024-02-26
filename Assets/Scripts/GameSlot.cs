@@ -20,5 +20,6 @@ public class GameSlot : MonoBehaviour, IDropHandler
             dragItem.transform.SetParent(transform);
             dragItem.GetComponent<RectTransform>().position = rect.position;
         }
+        else return;
     }
 }

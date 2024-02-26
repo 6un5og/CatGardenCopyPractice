@@ -119,10 +119,9 @@ public class MainGameUI : MonoBehaviour, IPointerClickHandler, IBeginDragHandler
     {
         GameObject dragItem = eventData.pointerDrag;
         MainGameUI dragItemUI = dragItem.transform.GetComponent<MainGameUI>();
-        ItemType dragItemType = dragItemUI.ItemTypes;
         MainGameUI thisItemUI = transform.GetComponent<MainGameUI>();
 
-        if (dragItemType == thisItemUI.ItemTypes && dragItemUI.level == thisItemUI.level)
+        if (dragItemUI != null && dragItemUI.ItemTypes == thisItemUI.ItemTypes && dragItemUI.level == thisItemUI.level)
         {
             dragItem.transform.SetParent(transform.parent);
             dragItem.GetComponent<RectTransform>().position = rect.position;
@@ -135,5 +134,6 @@ public class MainGameUI : MonoBehaviour, IPointerClickHandler, IBeginDragHandler
             transform.gameObject.SetActive(false);
             transform.localScale = Vector3.zero;
         }
+        else return;
     }
 }
