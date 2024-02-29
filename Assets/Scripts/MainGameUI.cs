@@ -37,8 +37,6 @@ public class MainGameUI : MonoBehaviour, IPointerClickHandler, IBeginDragHandler
 
     void OnEnable()
     {
-        level = 1;
-        anim.SetInteger("Level", 1);
         ItemTypes = GetRandomEnumValue();
         switch (ItemTypes)
         {
@@ -102,6 +100,10 @@ public class MainGameUI : MonoBehaviour, IPointerClickHandler, IBeginDragHandler
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        MainGameUI dragInfo = eventData.pointerDrag.GetComponent<MainGameUI>();
+        GameManager.instance.itemName.text = dragInfo.ItemTypes.ToString() + "\nLv. " + dragInfo.level.ToString();
+        GameManager.instance.itemInfo.text = dragInfo.level.ToString();
+
         if (eventData.pointerDrag.CompareTag("Box"))
         {
             if (transform.parent == canvas)

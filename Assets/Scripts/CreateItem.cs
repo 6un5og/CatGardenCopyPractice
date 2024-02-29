@@ -15,7 +15,7 @@ public class CreateItem : MonoBehaviour
 
     void OnEnable()
     {
-        anim.SetInteger("Level", 0);
+        anim.SetInteger("Idle", 0);
     }
 
     public void CreateClick()
@@ -30,7 +30,13 @@ public class CreateItem : MonoBehaviour
         for (int index = 0; index < GameManager.instance.gameSlotCount; index++)
         {
             if (slotParent.transform.GetChild(index).childCount == 0)
-                return Instantiate(item, slotParent.transform.GetChild(index));
+            {
+                GameObject newItem = Instantiate(item, slotParent.transform.GetChild(index));
+                newItem.GetComponent<MainGameUI>().level = Random.Range(1, 3);
+                newItem.GetComponent<Animator>().SetInteger("Level", newItem.GetComponent<MainGameUI>().level);
+
+                return newItem;
+            }
             else
                 continue;
         }

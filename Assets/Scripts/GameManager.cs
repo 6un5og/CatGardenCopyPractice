@@ -35,9 +35,11 @@ public class GameManager : MonoBehaviour
             {
                 slots[i, j] = new List<GameObject>();
                 GameObject gameSlot = Instantiate(slot, slotParent.transform);
-                if (i >= 3 && i <= 5 && j >= 2 && j <= 4)
+                if (i >= 2 && i <= 5 && j >= 2 && j <= 4)
                     continue;
-                // Instantiate(item, gameSlot.transform);
+                GameObject boxItem = Instantiate(item, gameSlot.transform);
+                boxItem.GetComponent<MainGameUI>().level = Random.Range(3, 5);
+                boxItem.GetComponent<Animator>().SetInteger("Level", 0);
             }
         }
     }
