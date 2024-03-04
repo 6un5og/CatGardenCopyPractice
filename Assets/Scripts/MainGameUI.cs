@@ -5,10 +5,7 @@ using UnityEngine.EventSystems;
 
 public class MainGameUI : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler
 {
-    public enum ItemType
-    {
-        Box, Coin, Potion, Sword
-    }
+    public enum ItemType { Box, Coin, Potion, Sword }
 
     Transform canvas;
     public Transform prevParent;
