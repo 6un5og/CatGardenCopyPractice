@@ -762,7 +762,7 @@ GameObject:
   - component: {fileID: 801474048}
   - component: {fileID: 801474047}
   m_Layer: 5
-  m_Name: ItemInfo
+  m_Name: ItemName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -785,7 +785,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: -10, y: 0}
-  m_SizeDelta: {x: 280, y: 40}
+  m_SizeDelta: {x: 150, y: 40}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &801474047
 MonoBehaviour:
@@ -820,7 +820,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uC124\uBA85\uB780\n\uC124\uBA85\uB780"
+  m_Text: "\uC544\uC774\uD15C \uC774\uB984"
 --- !u!222 &801474048
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -864,8 +864,8 @@ MonoBehaviour:
   effectPrefab: {fileID: 1812141987484366187, guid: cd82b0e7717834e1992dabafde41feb9, type: 3}
   poolCursor: 10
   gameSlotCount: 0
-  itemName: {fileID: 1608773437}
-  itemInfo: {fileID: 801474047}
+  itemLevel: {fileID: 1608773437}
+  itemName: {fileID: 801474047}
 --- !u!4 &1174492298
 Transform:
   m_ObjectHideFlags: 0
@@ -1258,7 +1258,7 @@ GameObject:
   - component: {fileID: 1608773438}
   - component: {fileID: 1608773437}
   m_Layer: 5
-  m_Name: ItemName
+  m_Name: ItemLevel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1316,7 +1316,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uC544\uC774\uD15C \uC774\uB984\nLv. 0"
+  m_Text: "\uC544\uC774\uD15C \uB808\uBCA8"
 --- !u!222 &1608773438
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -16,8 +16,8 @@ public class GameManager : MonoBehaviour
     public int gameSlotCount;
     List<GameObject>[,] slots = new List<GameObject>[8, 7];
 
+    public Text itemLevel;
     public Text itemName;
-    public Text itemInfo;
 
     void Awake()
     {

@@ -64,15 +64,15 @@ public class MainGameUI : MonoBehaviour, IPointerClickHandler, IBeginDragHandler
     public void OnPointerClick(PointerEventData eventData)
     {
         MainGameUI dragInfo = eventData.pointerClick.GetComponent<MainGameUI>();
-        GameManager.instance.itemName.text = dragInfo.ItemTypes.ToString() + "\nLv. " + dragInfo.level.ToString();
-        GameManager.instance.itemInfo.text = dragInfo.level.ToString();
+        GameManager.instance.itemLevel.text = dragInfo.level.ToString();
+        GameManager.instance.itemName.text = dragInfo.ItemTypes.ToString();
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
         MainGameUI dragInfo = eventData.pointerClick.GetComponent<MainGameUI>();
-        GameManager.instance.itemName.text = dragInfo.ItemTypes.ToString() + "\nLv. " + dragInfo.level.ToString();
-        GameManager.instance.itemInfo.text = dragInfo.level.ToString();
+        GameManager.instance.itemLevel.text = dragInfo.level.ToString();
+        GameManager.instance.itemName.text = dragInfo.ItemTypes.ToString();
 
         if (eventData.pointerDrag.CompareTag("Box"))
         {
@@ -96,8 +96,8 @@ public class MainGameUI : MonoBehaviour, IPointerClickHandler, IBeginDragHandler
     public void OnEndDrag(PointerEventData eventData)
     {
         MainGameUI dragInfo = eventData.pointerDrag.GetComponent<MainGameUI>();
-        GameManager.instance.itemName.text = dragInfo.ItemTypes.ToString() + "\nLv. " + dragInfo.level.ToString();
-        GameManager.instance.itemInfo.text = dragInfo.level.ToString();
+        GameManager.instance.itemLevel.text = dragInfo.level.ToString();
+        GameManager.instance.itemName.text = dragInfo.ItemTypes.ToString();
 
         if (eventData.pointerDrag.CompareTag("Box"))
         {
