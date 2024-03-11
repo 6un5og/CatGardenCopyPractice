@@ -4,7 +4,6 @@ using UnityEngine.UI;
 public class SelectSlot : MonoBehaviour
 {
     public static SelectSlot instance;
-
     public MainGameUI selectSlot;
 
     [SerializeField]
